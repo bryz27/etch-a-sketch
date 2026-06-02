@@ -9,4 +9,14 @@
 
 .container .grid-item {
     size: 16px 16px;
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+.container .grid-item:hover {
+    background-color: black;
+}
+
+.container .grid-item.active {
+    background-color: black;
 }
