@@ -1,0 +1,12 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    width: 100%;
+    height: 100vh;
+    gap: 2px;
+}
+
+.container .grid-item {
+    size: 16px 16px;
+}
