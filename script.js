@@ -19,8 +19,36 @@ function generateGrid(num) {
     });
 }
 
+function promptCheck() {
+    let userInput;
+    let promptMessage = "Please enter a grid size between 1 and 100";
+    let isValid = false;
+
+    while (!isValid) {
+        let rawInput = prompt(promptMessage);
+
+        if (rawInput === null) {
+            break;
+        }
+
+        userInput = parseInt(rawInput, 10);
+
+        if (!Number.isInteger(userInput) || rawInput.trim() === "") {
+            promptMessage = "⚠️ WARNING: Not a valid integer!\n\nPlease enter a number from 1 to 100:";
+        } else if (userInput < 1 || userInput > 100) {
+            promptMessage = "⚠️ WARNING: Out of range!\n\nPlease enter a number between 1 and 100:";
+        } else {
+            isValid = true;
+        }
+    }
+
+    if (isValid) {
+        return userInput;
+    }
+}
+
 resizeButton.addEventListener('click', (event) => {
-    gridNum = prompt("Input grids in width and height:");
+    gridNum = promptCheck();
     container.replaceChildren();
     container.style.gridTemplateColumns = `repeat(${gridNum}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${gridNum}, 1fr)`;
