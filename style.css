@@ -2,14 +2,14 @@
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-    width: 75vw;
-    height: 75vh;
-    gap: 2px;
+    width: 400px;
+    height: 400px;
+    /* gap: 2px; */
     border: 1px solid black;
 }
 
 .container .grid-item {
-    size: 16px 16px;
+    size: 1vw 1vh;
     background-color: white;
     transition: background-color 0.3s ease;
 }
