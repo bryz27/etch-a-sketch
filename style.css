@@ -15,9 +15,9 @@
 }
 
 .container .grid-item:hover {
-    background-color: black;
+    background-color: var(--random-color, gray);
 }
 
 .container .grid-item.active {
-    background-color: black;
+    background-color: var(--random-color, gray);
 }

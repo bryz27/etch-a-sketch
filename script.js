@@ -13,8 +13,12 @@ function generateGrid(num) {
     container.style.gridTemplateRows = `repeat(${num}, 1fr)`;
     const gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
         item.addEventListener('mouseenter', () => {
             item.classList.add('active');
+            item.style.setProperty('--random-color', `rgb(${r}, ${g}, ${b})`);
         });
     });
 }
@@ -23,16 +27,12 @@ function promptCheck() {
     let userInput;
     let promptMessage = "Please enter a grid size between 1 and 100";
     let isValid = false;
-
     while (!isValid) {
         let rawInput = prompt(promptMessage);
-
         if (rawInput === null) {
             break;
         }
-
         userInput = parseInt(rawInput, 10);
-
         if (!Number.isInteger(userInput) || rawInput.trim() === "") {
             promptMessage = "⚠️ WARNING: Not a valid integer!\n\nPlease enter a number from 1 to 100:";
         } else if (userInput < 1 || userInput > 100) {
@@ -41,7 +41,6 @@ function promptCheck() {
             isValid = true;
         }
     }
-
     if (isValid) {
         return userInput;
     }
